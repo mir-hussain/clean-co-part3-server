@@ -28,6 +28,10 @@ async function run() {
       delete /delete-service => delete a data from collection
     */
 
+    app.get("/", async (req, res) => {
+      res.send("Hello bro");
+    });
+
     app.get("/get-service", async (req, res) => {
       const services = await servicesCollection.find({}).toArray();
       console.log(services);
