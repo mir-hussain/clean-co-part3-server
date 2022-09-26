@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const { MongoClient, ServerApiVersion, ObjectId } = require("mongodb");
@@ -14,8 +15,8 @@ app.use(
 
 app.use(express.json());
 
-const uri =
-  "mongodb+srv://mir:admin@cluster0.0pjo8.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+const uri = process.env.DB_URI;
+
 const client = new MongoClient(uri, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
